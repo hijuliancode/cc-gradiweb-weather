@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 // Styles
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize, Normalize } from "styled-normalize";
-import * as Theme from "./config/theme";
+import * as Theme from "./config/theme/";
 
 export const GlobalStyle = createGlobalStyle`
   ${Normalize}
