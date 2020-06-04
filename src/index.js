@@ -4,8 +4,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Styles
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize, Normalize } from "styled-normalize";
+import * as Theme from "./config/theme";
 
 export const GlobalStyle = createGlobalStyle`
   ${Normalize}
@@ -22,10 +23,10 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 ReactDOM.render(
-  <React.Fragment>
+  <ThemeProvider theme={Theme}>
     <GlobalStyle/>
     <App />
-  </React.Fragment>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
