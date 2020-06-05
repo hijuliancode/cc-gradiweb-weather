@@ -2,13 +2,9 @@ import React from 'react'
 import gradiIsotipo from './images/design/misc/gradiweb-isotipo.png'
 import styled from 'styled-components'
 
-import AddLocation from './components/AddLocation/'
 import CurrentStateComponent from './components/CurrentState/'
-import Forecast from './components/Forecast/'
 import HeroComponent from './components/Hero/'
-import Location from './components/Location/'
-import Places from './components/Places/'
-import Reviewers from './components/Reviewers/'
+import SectionGridComponent from './components/SectionGrid'
 
 const Alerts = styled.div`
   display: none;
@@ -42,31 +38,48 @@ const Container = styled.main`
   ${props => props.theme.isRadious.x3}
   background-color: ${props => props.theme.whiteColor};
   box-shadow: rgba(#c8d1d8, 0.5);
+  display: flex;
+  flex-flow: column;
   min-height: 95vh;
-  padding: ${props => props.theme.baseSize * 4}px ${props => props.theme.baseSize * 4}px;
   width: 95vw;
   @media screen and (${props => props.theme.mq.sm}) {
     ${props => props.theme.isRadious.x4}
     min-height: 90vh;
-    padding: ${props => props.theme.baseSize * 6}px ${props => props.theme.baseSize * 6}px;
     width: 90vw;
   }
   @media screen and (${props => props.theme.mq.md}) {
     ${props => props.theme.isRadious.x6}
-    padding: ${props => props.theme.baseSize * 8}px ${props => props.theme.baseSize * 8}px;
     width: 80vw;
   }
   @media screen and (${props => props.theme.mq.lg}) {
     ${props => props.theme.isRadious.x7}
-    padding: ${props => props.theme.baseSize * 10}px ${props => props.theme.baseSize * 10}px;
     width: 70vw;
   }
 `
-const SectionTop = styled.section`
-  /* background-color: blue; */
+const _sections = styled.section`
+  flex-basis: 100%;
+  display: flex;
+  padding: ${props => props.theme.baseSize * 4}px ${props => props.theme.baseSize * 4}px;
+  @media screen and (${props => props.theme.mq.sm}) {
+    padding: ${props => props.theme.baseSize * 6}px ${props => props.theme.baseSize * 6}px;
+  }
+  @media screen and (${props => props.theme.mq.md}) {
+    padding: ${props => props.theme.baseSize * 8}px ${props => props.theme.baseSize * 8}px;
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
+    padding: ${props => props.theme.baseSize * 10}px ${props => props.theme.baseSize * 10}px;
+  }
 `
-const SectionBottom = styled.section`
-  /* background-color: red; */
+const SectionTop = styled(_sections)`
+  position: relative;
+`
+const SectionBottom = styled(_sections)`
+  flex: 1;
+  padding-top: 0;
+  position: relative;
+  @media screen and (${props => props.theme.mq.sm}) { padding-top: 0; }
+  @media screen and (${props => props.theme.mq.md}) { padding-top: 0; }
+  @media screen and (${props => props.theme.mq.lg}) { padding-top: 0; }
 `
 
 const Root = () => (
@@ -76,15 +89,10 @@ const Root = () => (
     <Container>
       <SectionTop>
         <CurrentStateComponent />
-        <HeroComponent/>
+        <HeroComponent />
       </SectionTop>
-
-      <SectionBottom>
-        <Forecast/>
-        <Places/>
-        <Reviewers/>
-        <AddLocation/>
-        <Location/>
+      <SectionBottom noPaddingTop>
+        <SectionGridComponent/> {/* Section Grid with dynamic information */}
       </SectionBottom>
     </Container>
 

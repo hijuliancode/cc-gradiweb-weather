@@ -11,6 +11,7 @@ const Hero = styled.picture`
   overflow: hidden;
   padding: ${props => props.theme.baseSize * 5}px;
   position: relative;
+  width: 100%;
   @media screen and (${props => props.theme.mq.sm}) {
     justify-content: flex-start;
     ${props => props.theme.isRadious.x4};

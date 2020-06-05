@@ -15,7 +15,8 @@ export const GlobalStyle = createGlobalStyle`
   html, body, #root { height: 100vh; }
   body {
     background-color: ${props => props.theme.lightColor};
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${props => props.theme.font.base}; /* base font: If the font-family app don't load */
+    font-family: ${props => props.theme.font.primary.name};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
