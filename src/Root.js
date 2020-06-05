@@ -10,28 +10,31 @@ const Alerts = styled.div`
   display: none;
 `
 const Wrapper = styled.div`
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   height: 100vh;
   justify-content: center;
+  padding-top: ${props => props.theme.baseSize * 6}px;
   position: relative;
   width: 100vw;
 `
 const Brand = styled.img`
-  height: 40px;
+  height: 30px;
   object-fit: content;
   position: absolute;
   right: 5px;
   top: 10px;
-  width: 36px;
+  width: 27px;
   z-index: 10;
   @media screen and (${props => props.theme.mq.sm}) {
     right: 15px;
     top: 15px;
   }
   @media screen and (${props => props.theme.mq.md}) {
+    height: 40px;
     right: 20px;
     top: 20px;
+    width: 36px;
   }
 `
 const Container = styled.main`

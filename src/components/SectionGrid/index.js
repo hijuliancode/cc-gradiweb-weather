@@ -47,6 +47,7 @@ const AreaLocations = styled.div`
 `
 const AreaTitle = styled.h2`
   font-weight: 300;
+  font-size: 1.1rem;
   margin: 0 0 2rem;
   span {
     font-weight: 600;
