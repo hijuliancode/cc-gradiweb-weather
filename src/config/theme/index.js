@@ -1,3 +1,4 @@
+// COLORS
 export const primaryColor = "#7d67f0"
 export const primaryColor_dark = "#102e84"
 export const primaryColor_light = "#e1e8f0"
@@ -11,3 +12,6 @@ export const whiteColor = "#ffffff"
 
 export const gradiBrandColor1 = "#02d569"
 export const gradiBrandColor2 = "#39bee3"
+
+// SIZES
+export const baseSize = 4;

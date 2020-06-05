@@ -11,7 +11,8 @@ import * as Theme from "./config/theme/"
 export const GlobalStyle = createGlobalStyle`
   ${Normalize}
   /* Global Styles */
-  html, body, #root { height: 100%; }
+  * { box-sizing: border-box; }
+  html, body, #root { height: 100vh; }
   body {
     background-color: ${props => props.theme.lightColor};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
