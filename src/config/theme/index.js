@@ -37,3 +37,10 @@ export const isRadious = {
 // md (Tablets Horizontal) >= 768px
 // lg (Desktop) >= 992px
 // xl (Desktop large) >= 1200px
+export const mq = {
+  xm: 'max-width: 576px',
+  sm: 'min-width: 576px',
+  md: 'min-width: 768px',
+  lg: 'min-width: 992px',
+  xl: 'min-width: 1200px'
+}
