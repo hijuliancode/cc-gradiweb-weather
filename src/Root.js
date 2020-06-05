@@ -53,7 +53,7 @@ const Container = styled.main`
   }
   @media screen and (${props => props.theme.mq.lg}) {
     ${props => props.theme.isRadious.x7}
-    max-width: 855px;
+    width: 855px;
   }
 `
 const _sections = styled.section`
