@@ -37,7 +37,7 @@ const Brand = styled.img`
 const Container = styled.main`
   ${props => props.theme.isRadious.x3}
   background-color: ${props => props.theme.whiteColor};
-  box-shadow: rgba(#c8d1d8, 0.5);
+  box-shadow: 0 10px 10px hsl(206.3, 17%, 81.6%); /* TODO: add variable to this color box-shadow */
   display: flex;
   flex-flow: column;
   min-height: 95vh;
@@ -53,7 +53,7 @@ const Container = styled.main`
   }
   @media screen and (${props => props.theme.mq.lg}) {
     ${props => props.theme.isRadious.x7}
-    width: 70vw;
+    max-width: 855px;
   }
 `
 const _sections = styled.section`

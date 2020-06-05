@@ -9,8 +9,8 @@ import Places from '../Places'
 import Reviewers from '../Reviewers'
 
 const Grid = styled.div`
+  grid-column-gap: 40px;
   width: 100%;
-  p { margin-top: 0; }
   @media screen and (${props => props.theme.mq.md}) {
     display: grid;
     grid-template-areas:
@@ -23,9 +23,11 @@ const Grid = styled.div`
       'area_forecast area_places area_locations'
     ;
   }
+  p { margin-top: 0; }
 `
 const AreaForecast = styled.div`
   grid-area: area_forecast;
+  /* padding: 0 ${props => props.theme.baseSize * 4}px 0 0; */
 `
 const AreaPlaces = styled.div`
   grid-area: area_places;
@@ -48,7 +50,9 @@ const SectionGridComponent = (props) => {
         <AreaTitle>
           <span>3 Days</span> Forecast
         </AreaTitle>
-        <Forecast/>
+        <Forecast />
+        <Forecast />
+        <Forecast />
       </AreaForecast>
       <AreaPlaces>
         <AreaTitle>

@@ -30,7 +30,6 @@ export const isRadious = {
   x10: `border-radius: ${baseSize * 10}px;`,
 }
 
-
 // MEDIA QUERIES
 // xm (Mobile) < 576px
 // sm (Tablets Vertical) >= 576px
@@ -52,13 +51,13 @@ export const font = {
   base: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   primary: {
     name: "'Poppins', sans-serif",
-    100: 100,
-    200: 200,
-    300: 300,
-    400: 400,
-    500: 500,
-    600: 600,
-    700: 700,
+    '100': 100,
+    '200': 200,
+    '300': 300,
+    '400': 400,
+    '500': 500,
+    '600': 600,
+    '700': 700,
   },
   numbers: {
     name: "'Barlow Condensed', sans-serif",
