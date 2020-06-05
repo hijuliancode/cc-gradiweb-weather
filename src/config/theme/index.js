@@ -44,3 +44,26 @@ export const mq = {
   lg: 'min-width: 992px',
   xl: 'min-width: 1200px'
 }
+
+// FONTS
+// font-family: 'Barlow Condensed', sans-serif;
+// font-family: 'Poppins', sans-serif;
+export const font = {
+  base: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  primary: {
+    name: "'Poppins', sans-serif",
+    100: 100,
+    200: 200,
+    300: 300,
+    400: 400,
+    500: 500,
+    600: 600,
+    700: 700,
+  },
+  numbers: {
+    name: "'Barlow Condensed', sans-serif",
+    300: 300,
+    400: 400,
+    500: 500,
+  }
+}
