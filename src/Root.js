@@ -3,7 +3,7 @@ import gradiIsotipo from './images/design/misc/gradiweb-isotipo.png'
 import styled from 'styled-components'
 
 import AddLocation from './components/AddLocation/'
-import CurrentState from './components/CurrentState/'
+import CurrentStateComponent from './components/CurrentState/'
 import Forecast from './components/Forecast/'
 import HeroComponent from './components/Hero/'
 import Location from './components/Location/'
@@ -48,14 +48,17 @@ const Container = styled.main`
   @media screen and (${props => props.theme.mq.sm}) {
     ${props => props.theme.isRadious.x4}
     min-height: 90vh;
-    padding: ${props => props.theme.baseSize * 6}px ${props => props.theme.baseSize * 8}px;
+    padding: ${props => props.theme.baseSize * 6}px ${props => props.theme.baseSize * 6}px;
     width: 90vw;
   }
   @media screen and (${props => props.theme.mq.md}) {
     ${props => props.theme.isRadious.x6}
+    padding: ${props => props.theme.baseSize * 8}px ${props => props.theme.baseSize * 8}px;
     width: 80vw;
   }
   @media screen and (${props => props.theme.mq.lg}) {
+    ${props => props.theme.isRadious.x7}
+    padding: ${props => props.theme.baseSize * 10}px ${props => props.theme.baseSize * 10}px;
     width: 70vw;
   }
 `
@@ -72,7 +75,7 @@ const Root = () => (
 
     <Container>
       <SectionTop>
-        <CurrentState/>
+        <CurrentStateComponent />
         <HeroComponent/>
       </SectionTop>
 

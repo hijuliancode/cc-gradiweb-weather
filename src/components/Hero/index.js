@@ -6,15 +6,22 @@ const Hero = styled.picture`
   ${props => props.theme.isRadious.x3}
   color: ${props => props.theme.whiteColor};
   display: flex;
-  height: 40%;
+  height: 220px;
   justify-content: flex-end;
   overflow: hidden;
   padding: ${props => props.theme.baseSize * 5}px;
   position: relative;
-  @media screen and (min-width: 576px) {
+  @media screen and (${props => props.theme.mq.sm}) {
     justify-content: flex-start;
-    ${props => props.theme.isRadious.x6}
+    ${props => props.theme.isRadious.x4};
   }
+  @media screen and (${props => props.theme.mq.md}) {
+    ${props => props.theme.isRadious.x6};
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
+    ${props => props.theme.isRadious.x7};
+  }
+
   .Hero__content {
     display: flex;
     flex-direction: column;
@@ -59,7 +66,7 @@ const HeroBackdrop = styled.div`
 const HeroComponent = (props) => {
   return (
     <Hero>
-      <HeroImage src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Centro_internacional.JPG" alt="City" />
+      <HeroImage src="https://i.pinimg.com/originals/04/e2/a4/04e2a4a735ff613ff1ee802aaa44b03f.jpg" alt="City" />
       <HeroBackdrop />
       <div className="Hero__content">
         <div className="Location">

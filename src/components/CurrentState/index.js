@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import styled from 'styled-components'
 
-const CurrentState = (props) => {
+const CurrentState = styled.div`
+  display: none;
+`
+
+const CurrentStateComponent = (props) => {
   return (
-    <Fragment>
-      <p>CurrentState</p>
-    </Fragment>
+    <CurrentState>
+      <p>CurrentStateComponent</p>
+    </CurrentState>
   )
 }
 
-export default CurrentState
+export default CurrentStateComponent
