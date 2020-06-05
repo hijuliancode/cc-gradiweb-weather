@@ -5,13 +5,12 @@ const ForecastElm = styled.div`
   ${props => props.theme.isRadious.x3}
   border: 1px solid ${props => props.theme.lightColor};
   box-shadow: 0 0px 15px hsl(206.3, 17%, 91.6%); /* TODO: add variable to this color box-shadow */
-  column-gap: 15px;
   display: grid;
   min-height: 50px;
   grid-template-areas:
     'area_icon area_info area_average'
   ;
-  grid-template-columns: 35px 1fr 58px;
+  grid-template-columns: 40px 50px 55px;
   margin-bottom: ${props => props.theme.baseSize * 3}px;
   position: relative;
   p {
@@ -32,7 +31,7 @@ const AreaInfo = styled.div`
   justify-content: center;
   h4, p { line-height: 1em; margin: 0; }
   h4 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: ${props => props.theme.font.primary[400]};
     margin-bottom: ${props => props.theme.baseSize}px;
   }
