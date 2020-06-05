@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   height: 100vh;
   justify-content: center;
   position: relative;
+  width: 100vw;
 `
 const Brand = styled.img`
   height: 40px;
@@ -28,8 +29,12 @@ const Brand = styled.img`
   top: 10px;
   width: 36px;
   z-index: 10;
-  @media screen and (min-width: 576px) {
-    right: 40px;
+  @media screen and (${props => props.theme.mq.sm}) {
+    right: 15px;
+    top: 15px;
+  }
+  @media screen and (${props => props.theme.mq.md}) {
+    right: 20px;
     top: 20px;
   }
 `
@@ -37,14 +42,21 @@ const Container = styled.main`
   ${props => props.theme.isRadious.x3}
   background-color: ${props => props.theme.whiteColor};
   box-shadow: rgba(#c8d1d8, 0.5);
-  height: 95vh;
+  min-height: 95vh;
   padding: ${props => props.theme.baseSize * 4}px ${props => props.theme.baseSize * 4}px;
   width: 95vw;
-  @media screen and (min-width: 576px) {
-    ${props => props.theme.isRadious.x7}
-    height: 80vh;
+  @media screen and (${props => props.theme.mq.sm}) {
+    ${props => props.theme.isRadious.x4}
+    min-height: 90vh;
     padding: ${props => props.theme.baseSize * 6}px ${props => props.theme.baseSize * 8}px;
+    width: 90vw;
+  }
+  @media screen and (${props => props.theme.mq.md}) {
+    ${props => props.theme.isRadious.x6}
     width: 80vw;
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
+    width: 70vw;
   }
 `
 const SectionTop = styled.section`
