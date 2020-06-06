@@ -1,7 +1,7 @@
 // COLORS
 export const primaryColor = "#7d67f0"
 export const primaryColor_dark = "#102e84"
-export const primaryColor_light = "#e1e8f0"
+export const primaryColor_light = "#dce8f4"
 
 export const secondaryColor = "#dce8f4"
 
