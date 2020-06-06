@@ -46,12 +46,16 @@ const AreaLocations = styled.div`
   }
 `
 const AreaTitle = styled.h2`
-  font-weight: 300;
+  display: flex;
   font-size: 1.1rem;
+  font-weight: 300;
   margin: 0 0 2rem;
   span {
+    display: inline-block;
     font-weight: 600;
+    margin-right: ${props => props.theme.baseSize}px;
   }
+  .separator { flex: 1; }
 `
 
 const SectionGridComponent = (props) => {
@@ -59,7 +63,7 @@ const SectionGridComponent = (props) => {
     <Grid>
       <AreaForecast>
         <AreaTitle>
-          <span>3 Days</span> Forecast
+          <span>3 Days </span> Forecast
         </AreaTitle>
         <Forecast />
         <Forecast />
@@ -68,8 +72,9 @@ const SectionGridComponent = (props) => {
       <AreaPlaces>
         <AreaTitle>
           <span>Place to</span> visit
+          <div className="separator"></div>
+          <Reviewers/>
         </AreaTitle>
-        <Reviewers/>
         <Places/>
       </AreaPlaces>
       <AreaLocations>
