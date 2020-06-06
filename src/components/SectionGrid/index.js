@@ -32,7 +32,8 @@ const AreaForecast = styled.div`
   }
 `
 const AreaPlaces = styled.div`
-  background-color: white;
+  display: flex;
+  flex-direction: column;
   grid-area: area_places;
   @media screen and (${props => props.theme.mq.lg}) {
     width: 310px;
