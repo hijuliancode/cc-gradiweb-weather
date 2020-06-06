@@ -47,7 +47,7 @@ const Container = styled.main`
   width: 95vw;
   @media screen and (${props => props.theme.mq.sm}) {
     ${props => props.theme.isRadious.x4}
-    min-height: 90vh;
+    min-height: initial;
     width: 90vw;
   }
   @media screen and (${props => props.theme.mq.md}) {

@@ -74,7 +74,7 @@ const HeroComponent = (props) => {
           <Icon pinLocation primaryColor></Icon>
           <span>Bogotá</span>
         </div>
-        <div className="Location-map"></div>
+        {/* <div className="Location-map"></div> */}
       </div>
     </Hero>
   )

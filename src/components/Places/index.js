@@ -9,43 +9,39 @@ import ImagePlaceC from '../../images/content/places/place-c.jpeg'
 
 const Grid = styled.div`
   flex: 1;
-  height: 100%;
-  @media screen and (${props => props.theme.mq.md}) {
+  @media screen and (${props => props.theme.mq.lg}) {
+    align-items: flex-start;
     display: grid;
-    grid-gap: 30px 20px;
+    grid-gap: 20px 30px;
     grid-template-areas:
       'place_a place_b'
-      'place_a place_c'
       'place_a place_c'
     ;
   }
 `
 const _place = styled.div`
-  ${props => props.theme.isRadious.x4}
+  ${props => props.theme.isRadious.x3}
   box-shadow: 0 5px 15px hsl(206.3, 17%, 81.6%); /* TODO: add variable to this color box-shadow */
   color: ${props => props.theme.whiteColor};
   overflow: hidden;
   padding: ${props => props.theme.baseSize * 3}px;
   position: relative;
-  min-height: 150px;
   &:not(:last-child) {
     margin-bottom: ${props => props.theme.baseSize * 3}px;
   }
   @media screen and (${props => props.theme.mq.md}) {
     ${props => props.theme.isRadious.x5}
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
     &:not(:last-child) {
       margin-bottom: 0;
     }
-  }
-  @media screen and (${props => props.theme.mq.lg}) {
     min-height: initial;
   }
   .place-info {
     display: flex;
     font-size: 0.7rem;
-    left: ${props => props.theme.baseSize * 4}px;
     position: absolute;
-    top: ${props => props.theme.baseSize * 4}px;
     z-index: 10;
     i {
       display: inline-block;
@@ -62,12 +58,24 @@ const _place = styled.div`
 `
 const PlaceA = styled(_place)`
   grid-area: place_a;
+  height: 120px;
+  @media screen and (${props => props.theme.mq.lg}) {
+    height: 160px;
+  }
 `
 const PlaceB = styled(_place)`
   grid-area: place_b;
+  height: 100px;
+  @media screen and (${props => props.theme.mq.lg}) {
+    height: 45px;
+  }
 `
 const PlaceC = styled(_place)`
   grid-area: place_c;
+  height: 100px;
+  @media screen and (${props => props.theme.mq.lg}) {
+    height: 90px;
+  }
 `
 const PlaceImage = styled.img`
   display: block;

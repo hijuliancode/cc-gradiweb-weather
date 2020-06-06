@@ -5,8 +5,9 @@ import Icon from '../shared/Icon'
 
 const AddLocationElm = styled.div`
   ${props => props.theme.isRadious.x3};
-  border: 1px dashed ${props => props.theme.grayColor};
   align-items: center;
+  background-color: ${props => props.theme.whiteColor};
+  border: 1px dashed ${props => props.theme.grayColor};
   box-shadow: 0 5px 15px hsl(206.3, 17%, 81.6%); /* TODO: add variable to this color box-shadow */
   display: flex;
   flex-direction: column;

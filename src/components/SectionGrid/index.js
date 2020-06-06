@@ -10,14 +10,6 @@ import Reviewers from '../Reviewers'
 
 const Grid = styled.div`
   width: 100%;
-  @media screen and (${props => props.theme.mq.md}) {
-    display: grid;
-    grid-column-gap: 40px;
-    grid-template-areas:
-      'area_forecast area_forecast'
-      'area_locations area_places'
-    ;
-  }
   @media screen and (${props => props.theme.mq.lg}) {
     display: flex;
     justify-content: space-between;
@@ -26,16 +18,38 @@ const Grid = styled.div`
 `
 const AreaForecast = styled.div`
   background-color: white;
+  display: flex;
+  flex-direction: column;
   grid-area: area_forecast;
   margin-bottom: ${props => props.theme.baseSize * 6}px;
   @media screen and (${props => props.theme.mq.md}) {
-    margin-bottom: 0;
   }
   @media screen and (${props => props.theme.mq.lg}) {
+    margin-bottom: 0;
     width: 145px;
   }
 `
+const AreaForecastItems = styled.div`
+  display: flex;
+  .Forecast {
+    flex: 1;
+    &:nth-child(2n) {
+      margin: 0 5px;
+    }
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
+    display: block;
+    .Forecast {
+      flex: 100%;
+      &:nth-child(2n) { margin: 0; }
+      &:not(:last-child) {
+        margin-bottom: ${props => props.theme.baseSize + 1}px; /** +1px to make pixel perfect */
+      }
+    }
+  }
+`
 const AreaPlaces = styled.div`
+  background-color: white;
   display: flex;
   flex-direction: column;
   grid-area: area_places;
@@ -49,9 +63,23 @@ const AreaPlaces = styled.div`
 `
 const AreaLocations = styled.div`
   background-color: white;
+  display: flex;
+  flex-direction: column;
   grid-area: area_locations;
   @media screen and (${props => props.theme.mq.lg}) {
     width: 210px;
+  }
+  ._locations {
+    /* background-color: red; */
+    flex: 1;
+    margin-bottom: ${props => props.theme.baseSize * 2}px;
+    margin-top: ${props => props.theme.baseSize * 2}px;
+    position: relative;
+    .Location {
+      &:not(:last-child) {
+        margin-bottom: ${props => props.theme.baseSize * 3}px;
+      }
+    }
   }
 `
 const AreaTitle = styled.h2`
@@ -77,9 +105,11 @@ const SectionGridComponent = (props) => {
         <AreaTitle>
           <span>3 Days </span> Forecast
         </AreaTitle>
-        <Forecast />
-        <Forecast />
-        <Forecast />
+        <AreaForecastItems>
+          <Forecast />
+          <Forecast />
+          <Forecast />
+        </AreaForecastItems>
       </AreaForecast>
       <AreaPlaces>
         <AreaTitle>
@@ -90,8 +120,10 @@ const SectionGridComponent = (props) => {
         <Places/>
       </AreaPlaces>
       <AreaLocations>
-        <Location/>
-        <Location/>
+        <div className="_locations">
+          {/* <Location topPosition={150}/> */}
+          <Location />
+        </div>
         <AddLocation/>
       </AreaLocations>
     </Grid>
