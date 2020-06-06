@@ -10,9 +10,13 @@ const ForecastElm = styled.div`
   grid-template-areas:
     'area_icon area_info area_average'
   ;
-  grid-template-columns: 40px 50px 55px;
-  margin-bottom: ${props => props.theme.baseSize * 3}px;
   position: relative;
+  &:not(:last-child) {
+    margin-bottom: ${props => props.theme.baseSize * 2}px;
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
+    grid-template-columns: 40px 50px 55px;
+  }
   p {
     margin: 0;
   }
@@ -53,7 +57,7 @@ const AreaAverage = styled.div`
   justify-content: center;
   position: absolute;
   right: 0px;
-  top: 0px;
+  top: -1px;
   font-family: ${props => props.theme.font.numbers.name};
   font-size: 14px;
   min-width: 55px;

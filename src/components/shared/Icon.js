@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import iconLocation from '../../images/design/icons/icon-location.svg'
-import iconLocationPrimary from '../../images/design/icons/icon-location-primary.svg'
+import iconLocationPrimary from '../../images/design/icons/icon-location--primary.svg'
+import iconLocationWhite from '../../images/design/icons/icon-location--white.svg'
 import iconReviewers from '../../images/design/icons/icon-reviewers.svg'
 import iconReviewersPrimary from '../../images/design/icons/icon-reviewers--primary.svg'
 
@@ -15,6 +16,9 @@ const Icon = styled.i`
     if (props.pinLocation) {
       if (props.primaryColor) {
         return `background-image: url(${iconLocationPrimary})`
+      }
+      if (props.whiteColor) {
+        return `background-image: url(${iconLocationWhite})`
       }
       return `background-image: url(${iconLocation})` // Default color is black
     }
