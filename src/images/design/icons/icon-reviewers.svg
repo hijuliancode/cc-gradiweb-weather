@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>reviewers-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 24 0 24 24 0 24"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="reviewers-icon" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) ">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Clip-2"></g>
+            <path d="M12.1935563,24 L11.8067481,24 C11.8067481,20.84502 10.6276894,18.0887667 8.26957838,15.7304699 C5.91161641,13.3723283 3.1552435,12.1934097 0,12.1934097 L0,11.8065903 C3.1552435,11.8065903 5.91161641,10.6275226 8.26972745,8.26418833 C10.6276894,5.90039442 11.8067481,3.14383677 11.8067481,0 L12.1935563,0 C12.1935563,3.15497997 13.3726149,5.91123327 15.730726,8.26938104 C18.0886879,10.6275226 20.8450609,11.8065903 24,11.8065903 L24,12.1932544 C20.8450609,12.1932544 18.0888432,13.3723283 15.730726,15.7304699 C13.3724596,18.0887667 12.1935563,20.84502 12.1935563,24" id="Fill-1" fill="#000000" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>
