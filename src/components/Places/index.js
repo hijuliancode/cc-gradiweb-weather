@@ -22,18 +22,23 @@ const Grid = styled.div`
 `
 const _place = styled.div`
   ${props => props.theme.isRadious.x4}
+  box-shadow: 0 5px 15px hsl(206.3, 17%, 81.6%); /* TODO: add variable to this color box-shadow */
   color: ${props => props.theme.whiteColor};
   overflow: hidden;
   padding: ${props => props.theme.baseSize * 3}px;
   position: relative;
+  min-height: 150px;
   &:not(:last-child) {
     margin-bottom: ${props => props.theme.baseSize * 3}px;
   }
   @media screen and (${props => props.theme.mq.md}) {
-    ${props => props.theme.isRadious.x8}
+    ${props => props.theme.isRadious.x5}
     &:not(:last-child) {
       margin-bottom: 0;
     }
+  }
+  @media screen and (${props => props.theme.mq.lg}) {
+    min-height: initial;
   }
   .place-info {
     display: flex;

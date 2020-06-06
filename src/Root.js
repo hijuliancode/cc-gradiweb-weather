@@ -75,6 +75,10 @@ const _sections = styled.section`
 `
 const SectionTop = styled(_sections)`
   position: relative;
+  margin-bottom: ${props => props.theme.baseSize * 2}px;
+  @media screen and (${props => props.theme.mq.md}) {
+    margin-bottom: 0;
+  }
 `
 const SectionBottom = styled(_sections)`
   flex: 1;

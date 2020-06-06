@@ -11,9 +11,7 @@ const ForecastElm = styled.div`
     'area_icon area_info area_average'
   ;
   position: relative;
-  &:not(:last-child) {
-    margin-bottom: ${props => props.theme.baseSize * 2}px;
-  }
+  margin-top: ${props => props.theme.baseSize * 2}px;
   @media screen and (${props => props.theme.mq.lg}) {
     grid-template-columns: 40px 50px 55px;
   }

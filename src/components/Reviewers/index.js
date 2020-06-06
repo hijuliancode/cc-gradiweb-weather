@@ -13,7 +13,7 @@ const ReviewersElm =  styled.div`
   justify-content: flex-end;
   strong {
     display: inline-block;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     font-weight: ${props => props.theme.font[100]};
     margin-right: ${props => props.theme.baseSize}px;
   }

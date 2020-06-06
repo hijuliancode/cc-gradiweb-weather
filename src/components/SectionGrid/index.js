@@ -27,6 +27,10 @@ const Grid = styled.div`
 const AreaForecast = styled.div`
   background-color: white;
   grid-area: area_forecast;
+  margin-bottom: ${props => props.theme.baseSize * 6}px;
+  @media screen and (${props => props.theme.mq.md}) {
+    margin-bottom: 0;
+  }
   @media screen and (${props => props.theme.mq.lg}) {
     width: 145px;
   }
@@ -35,6 +39,10 @@ const AreaPlaces = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: area_places;
+  margin-bottom: ${props => props.theme.baseSize * 6}px;
+  @media screen and (${props => props.theme.mq.md}) {
+    margin-bottom: 0;
+  }
   @media screen and (${props => props.theme.mq.lg}) {
     width: 310px;
   }
@@ -50,7 +58,10 @@ const AreaTitle = styled.h2`
   display: flex;
   font-size: 1.1rem;
   font-weight: 300;
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
+  @media screen and (${props => props.theme.mq.md}) {
+    margin: 0 0 2rem;
+  }
   span {
     display: inline-block;
     font-weight: 600;
