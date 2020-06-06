@@ -91,6 +91,7 @@ const SectionGridComponent = (props) => {
       </AreaPlaces>
       <AreaLocations>
         <Location/>
+        <Location/>
         <AddLocation/>
       </AreaLocations>
     </Grid>
