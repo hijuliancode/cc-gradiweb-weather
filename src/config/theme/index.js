@@ -2,6 +2,7 @@
 export const primaryColor = "#7d67f0"
 export const primaryColor_dark = "#102e84"
 export const primaryColor_light = "#dce8f4"
+export const primaryColor_light2 = "#efeffb"
 
 export const secondaryColor = "#dce8f4"
 
