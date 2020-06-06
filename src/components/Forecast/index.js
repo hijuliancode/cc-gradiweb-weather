@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const ForecastElm = styled.div`
   ${props => props.theme.isRadious.x3}
+  background-color: ${props => props.theme.whiteColor};
   border: 1px solid ${props => props.theme.lightColor};
   box-shadow: 0 0px 15px hsl(206.3, 17%, 91.6%); /* TODO: add variable to this color box-shadow */
   display: grid;
@@ -11,7 +12,6 @@ const ForecastElm = styled.div`
     'area_icon area_info area_average'
   ;
   position: relative;
-  margin-top: ${props => props.theme.baseSize * 2}px;
   @media screen and (${props => props.theme.mq.lg}) {
     grid-template-columns: 40px 50px 55px;
   }
@@ -50,20 +50,20 @@ const AreaAverage = styled.div`
   background-color: ${props => props.theme.primaryColor};
   color: ${props => props.theme.whiteColor};
   display: flex;
+  font-family: ${props => props.theme.font.numbers.name};
+  font-size: 14px;
   grid-area: area_average;
   height: 50px;
   justify-content: center;
+  min-width: 55px;
   position: absolute;
   right: 0px;
   top: -1px;
-  font-family: ${props => props.theme.font.numbers.name};
-  font-size: 14px;
-  min-width: 55px;
 `
 
 const Forecast = (props) => {
   return (
-    <ForecastElm>
+    <ForecastElm className="Forecast">
       <AreaIcon>A</AreaIcon>
       <AreaInfo>
         <h4>Friday</h4>

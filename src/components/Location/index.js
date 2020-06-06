@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const LocationElm = styled.div`
@@ -7,8 +7,10 @@ const LocationElm = styled.div`
   box-shadow: 0 5px 15px hsl(206.3, 17%, 81.6%); /* TODO: add variable to this color box-shadow */
   display: flex;
   flex-direction: column;
-  margin-bottom: ${props => props.theme.baseSize * 5}px;
   min-height: 90px;
+  @media screen and (${props => props.theme.mq.lg}) {
+    margin-top: -15px;
+  }
 `
 const LocationContent = styled.div`
   position: relative;
@@ -79,7 +81,7 @@ const LocationFooter = styled.ul`
 
 const Locations = (props) => {
   return (
-    <LocationElm>
+    <LocationElm className="Location">
       <LocationContent>
         <LocationIcon></LocationIcon>
         <LocationInfo>
