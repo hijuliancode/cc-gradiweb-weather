@@ -21,7 +21,6 @@ const LocationContent = styled.div`
 `
 const LocationIcon = styled.div`
   ${props => props.theme.isRadious.x3};
-  /* border-top-left-radius: ${props => props.theme.baseSize * 3}px; */ /** TODO: Review this border-radius */
   align-items: center;
   background-color: ${props => props.theme.primaryColor_light};
   display: flex;
@@ -72,11 +71,11 @@ const LocationInfo = styled.div`
 const LocationFooter = styled.ul`
   color: ${props => props.theme.grayColor};
   display: flex;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
-  padding: 0 ${props => props.theme.baseSize * 3}px ${props => props.theme.baseSize * 3}px;
+  padding: 0 ${props => props.theme.baseSize * 4}px ${props => props.theme.baseSize * 2}px;
 `
 
 const Locations = (props) => {
