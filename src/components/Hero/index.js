@@ -13,29 +13,31 @@ const Hero = styled.picture`
   position: relative;
   width: 100%;
   @media screen and (${props => props.theme.mq.sm}) {
-    justify-content: flex-start;
     ${props => props.theme.isRadious.x4};
+    justify-content: flex-start;
   }
   @media screen and (${props => props.theme.mq.md}) {
     ${props => props.theme.isRadious.x6};
   }
   @media screen and (${props => props.theme.mq.lg}) {
     ${props => props.theme.isRadious.x7};
+    padding-left: ${props => props.theme.baseSize * 15}px;
   }
-
   .Hero__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: ${props => props.theme.baseSize * 6}px;
     position: relative;
     z-index: 10;
     .Location {
       align-items: center;
       display: flex;
       margin-bottom: ${props => props.theme.baseSize * 2}px;
-      i { margin-right: ${props => props.theme.baseSize}px; }
+      i { margin-right: ${props => props.theme.baseSize * 2}px; }
       span {
         color: ${props => props.theme.primaryColor};
+        font-weight: ${props => props.theme.font.primary[500]};
       }
     }
     .Location-map {
