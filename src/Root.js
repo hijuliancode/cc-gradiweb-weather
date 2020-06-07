@@ -92,6 +92,7 @@ const SectionBottom = styled(_sections)`
 `
 
 const Root = () => {
+  const [loading, setLoading] = useState(true)
   // const [currentScale, setCurrentScale] = useState('Celcius')
   // const [currentCity, setCurrentCity] = useState()
   // const [forecasts, setForecast] = useState([])
@@ -100,6 +101,9 @@ const Root = () => {
   // const [locations, setLocation] = useState([])
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
     getCurrentCity()
     getForecasts()
     getReviewers()
@@ -110,11 +114,11 @@ const Root = () => {
       <Brand src={gradiIsotipo} />
       <Container>
         <SectionTop>
-          <CurrentStateComponent />
-          <HeroComponent />
+          <CurrentStateComponent loading={loading} />
+          <HeroComponent loading={loading} />
         </SectionTop>
         <SectionBottom noPaddingTop>
-          <SectionGridComponent/> {/* Section Grid with dynamic information */}
+          <SectionGridComponent loading={loading}/> {/* Section Grid with dynamic information */}
         </SectionBottom>
       </Container>
       <Alerts/>

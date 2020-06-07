@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Icon from '../shared/Icon'
+
+import Skeleton from '../shared/skeleton'
 
 // TEMP Images
 import ImagePlaceA from '../../images/content/places/place-a.jpeg'
@@ -87,38 +89,53 @@ const PlaceImage = styled.img`
   width: 100%;
 `
 
-const Places = (props) => {
+const Places = ({loading}) => {
   return (
     <Grid>
       <PlaceA>
-        <div className="place-info">
-          <Icon pinLocation whiteColor></Icon>
-          <div className="place-info__name">
-            <p>Arab Street</p>
-            <p>Singapore</p>
-          </div>
-        </div>
-          <PlaceImage src={ImagePlaceA} alt="Place A" />
+        {loading && <Skeleton />}
+        {!loading &&
+          <Fragment>
+            <div className="place-info">
+              <Icon pinLocation whiteColor></Icon>
+              <div className="place-info__name">
+                <p>Arab Street</p>
+                <p>Singapore</p>
+              </div>
+            </div>
+            <PlaceImage src={ImagePlaceA} alt="Place A" />
+          </Fragment>
+        }
       </PlaceA>
       <PlaceB>
-        <div className="place-info">
-          <Icon pinLocation whiteColor></Icon>
-          <div className="place-info__name">
-            <p>Arab Street</p>
-            <p>Singapore</p>
-          </div>
-        </div>
-          <PlaceImage src={ImagePlaceB} alt="Place B" />
+        {loading && <Skeleton />}
+        {!loading &&
+          <Fragment>
+            <div className="place-info">
+              <Icon pinLocation whiteColor></Icon>
+              <div className="place-info__name">
+                <p>Arab Street</p>
+                <p>Singapore</p>
+              </div>
+            </div>
+            <PlaceImage src={ImagePlaceB} alt="Place B" />
+          </Fragment>
+        }
       </PlaceB>
       <PlaceC>
-        <div className="place-info">
-          <Icon pinLocation whiteColor></Icon>
-          <div className="place-info__name">
-            <p>Arab Street</p>
-            <p>Singapore</p>
-          </div>
-        </div>
-          <PlaceImage src={ImagePlaceC} alt="Place C" />
+        {loading && <Skeleton />}
+        {!loading &&
+          <Fragment>
+            <div className="place-info">
+              <Icon pinLocation whiteColor></Icon>
+              <div className="place-info__name">
+                <p>Arab Street</p>
+                <p>Singapore</p>
+              </div>
+            </div>
+            <PlaceImage src={ImagePlaceC} alt="Place C" />
+          </Fragment>
+        }
       </PlaceC>
     </Grid>
   )
