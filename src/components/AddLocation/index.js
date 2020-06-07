@@ -48,12 +48,17 @@ const AddLocationButton = styled.button`
 `
 
 const addCanvas = function() {
-  let c = document.getElementById('locationCanvas')
-  let ctx = c.getContext('2d')
-  ctx.beginPath()
-  ctx.strokeStyle = "#7d67f0";
-  ctx.arc(100, 75, 50, 0.5 * Math.PI, 1.5 * Math.PI)
-  ctx.stroke()
+  try {
+    let c = document.getElementById('locationCanvas')
+    let ctx = c.getContext('2d')
+    ctx.beginPath()
+    ctx.strokeStyle = "#7d67f0";
+    ctx.arc(100, 75, 50, 0.5 * Math.PI, 1.5 * Math.PI)
+    ctx.stroke()
+  } catch {
+    console.error("=> can't load the canvas")
+  }
+  
 }
 
 const AddLocation = (props) => {

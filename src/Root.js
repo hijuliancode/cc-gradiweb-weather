@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import gradiIsotipo from './images/design/misc/gradiweb-isotipo.png'
 import styled from 'styled-components'
 
 import CurrentStateComponent from './components/CurrentState/'
 import HeroComponent from './components/Hero/'
 import SectionGridComponent from './components/SectionGrid'
+
+const { getCurrentCity, getForecasts, getReviewers } = require('./services/')
 
 const Alerts = styled.div`
   display: none;
@@ -89,22 +91,34 @@ const SectionBottom = styled(_sections)`
   @media screen and (${props => props.theme.mq.lg}) { padding-top: 0; }
 `
 
-const Root = () => (
-  <Wrapper>
-    <Brand src={gradiIsotipo} />
+const Root = () => {
+  // const [currentScale, setCurrentScale] = useState('Celcius')
+  // const [currentCity, setCurrentCity] = useState()
+  // const [forecasts, setForecast] = useState([])
+  // const [reviewers, setReviewer] = useState([])
+  // const [places, setPlace] = useState([])
+  // const [locations, setLocation] = useState([])
 
-    <Container>
-      <SectionTop>
-        <CurrentStateComponent />
-        <HeroComponent />
-      </SectionTop>
-      <SectionBottom noPaddingTop>
-        <SectionGridComponent/> {/* Section Grid with dynamic information */}
-      </SectionBottom>
-    </Container>
+  useEffect(() => {
+    getCurrentCity()
+    getForecasts()
+    getReviewers()
+  }, [])
 
-    <Alerts/>
-  </Wrapper>
-)
-
+  return (
+    <Wrapper>
+      <Brand src={gradiIsotipo} />
+      <Container>
+        <SectionTop>
+          <CurrentStateComponent />
+          <HeroComponent />
+        </SectionTop>
+        <SectionBottom noPaddingTop>
+          <SectionGridComponent/> {/* Section Grid with dynamic information */}
+        </SectionBottom>
+      </Container>
+      <Alerts/>
+    </Wrapper>
+  )
+}
 export default Root

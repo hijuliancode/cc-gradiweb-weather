@@ -45,7 +45,7 @@ const CurrentStateIcon = styled(_currentState)`
     top: -6px;
   }
 `
-const CurrentStateDegree = styled(_currentState)`
+const CurrentStateScale = styled(_currentState)`
   background-color: ${props => props.theme.primaryColor};
   border-bottom-left-radius: 0;
   font-family: ${props => props.theme.font.numbers.name};
@@ -62,9 +62,9 @@ const CurrentStateComponent = (props) => {
   return (
     <CurrentState>
       <CurrentStateIcon></CurrentStateIcon>
-      <CurrentStateDegree>
+      <CurrentStateScale>
         31<sup>°C</sup>
-      </CurrentStateDegree>
+      </CurrentStateScale>
     </CurrentState>
   )
 }

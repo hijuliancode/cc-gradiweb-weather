@@ -66,7 +66,7 @@ const HeroBackdrop = styled.div`
   width: 100%;
 `
 
-const HeroComponent = (props) => {
+const HeroComponent = ({props}) => {
   return (
     <Hero>
       <HeroImage src="https://i.pinimg.com/originals/04/e2/a4/04e2a4a735ff613ff1ee802aaa44b03f.jpg" alt="City" />
