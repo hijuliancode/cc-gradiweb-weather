@@ -10,8 +10,8 @@ const Icon = styled.i`
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
-  height: ${props => props.theme.baseSize * 6}px;
-  width: ${props => props.theme.baseSize * 6}px;
+  height: ${props => props.theme.baseSize * 4}px;
+  width: ${props => props.theme.baseSize * 4}px;
   ${props => {
     if (props.pinLocation) {
       if (props.primaryColor) {
