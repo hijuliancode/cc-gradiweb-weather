@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 // Components
+import Skeleton from '../shared/skeleton'
 import AddLocation from '../AddLocation'
 import Forecast from '../Forecast'
 import Location from '../Location'
@@ -98,33 +99,38 @@ const AreaTitle = styled.h2`
   .separator { flex: 1; }
 `
 
-const SectionGridComponent = (props) => {
+const SectionGridComponent = ({loading}) => {
   return (
     <Grid>
       <AreaForecast>
         <AreaTitle>
           <span>3 Days </span> Forecast
         </AreaTitle>
-        <AreaForecastItems>
-          <Forecast />
-          <Forecast />
-          <Forecast />
-        </AreaForecastItems>
+        {loading && <Skeleton />}
+        {!loading &&
+          <AreaForecastItems>
+            <Forecast />
+            <Forecast />
+            <Forecast />
+          </AreaForecastItems>
+        }
       </AreaForecast>
       <AreaPlaces>
         <AreaTitle>
           <span>Place to</span> visit
           <div className="separator"></div>
-          <Reviewers/>
+          {!loading &&
+            <Reviewers />
+          }
         </AreaTitle>
-        <Places/>
+        <Places loading={loading} />
       </AreaPlaces>
       <AreaLocations>
         <div className="_locations">
           {/* <Location topPosition={150}/> */}
-          <Location />
+          <Location loading={loading} />
         </div>
-        <AddLocation/>
+        <AddLocation loading={loading} />
       </AreaLocations>
     </Grid>
   )

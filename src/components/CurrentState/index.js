@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CurrentStateMiscTop from '../../images/design/misc/current-state-misc--top.svg'
 import CurrentStateMiscBottom from '../../images/design/misc/current-state-misc--bottom.svg'
+import Skeleton from '../shared/skeleton'
 
 const CurrentState = styled.div`
   ${props => props.theme.isRadious.x4};
@@ -58,12 +59,18 @@ const CurrentStateScale = styled(_currentState)`
   }
 `
 
-const CurrentStateComponent = (props) => {
+const CurrentStateComponent = ({loading}) => {
   return (
     <CurrentState>
-      <CurrentStateIcon></CurrentStateIcon>
+      <CurrentStateIcon>
+        {!loading && <span></span>}
+      </CurrentStateIcon>
       <CurrentStateScale>
-        31<sup>°C</sup>
+        {!loading &&
+          <span>
+            31<sup>°C</sup>
+          </span>
+        }
       </CurrentStateScale>
     </CurrentState>
   )

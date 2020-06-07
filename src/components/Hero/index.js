@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Icon from '../shared/Icon'
+
+import Skeleton from '../shared/skeleton'
 
 const Hero = styled.picture`
   ${props => props.theme.isRadious.x3}
@@ -66,18 +68,24 @@ const HeroBackdrop = styled.div`
   width: 100%;
 `
 
-const HeroComponent = ({props}) => {
+const HeroComponent = ({loading}) => {
+  console.log(loading)
   return (
     <Hero>
-      <HeroImage src="https://i.pinimg.com/originals/04/e2/a4/04e2a4a735ff613ff1ee802aaa44b03f.jpg" alt="City" />
-      <HeroBackdrop />
-      <div className="Hero__content">
-        <div className="Location">
-          <Icon pinLocation primaryColor></Icon>
-          <span>Bogotá</span>
-        </div>
-        {/* <div className="Location-map"></div> */}
-      </div>
+      {loading && <Skeleton />}
+      {!loading &&
+        <Fragment>
+          <HeroImage src="https://i.pinimg.com/originals/04/e2/a4/04e2a4a735ff613ff1ee802aaa44b03f.jpg" alt="City" />
+          <HeroBackdrop />
+          <div className="Hero__content">
+            <div className="Location">
+              <Icon pinLocation primaryColor></Icon>
+              <span>Bogotá</span>
+            </div>
+            {/* <div className="Location-map"></div> */}
+          </div>
+        </Fragment>
+      }
     </Hero>
   )
 }

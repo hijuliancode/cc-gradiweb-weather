@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import Skeleton from '../shared/skeleton'
 
 const LocationElm = styled.div`
   ${props => props.theme.isRadious.x3};
@@ -8,6 +9,7 @@ const LocationElm = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 90px;
+  overflow: hidden;
   @media screen and (${props => props.theme.mq.lg}) {
     margin-top: -15px;
   }
@@ -78,27 +80,32 @@ const LocationFooter = styled.ul`
   padding: 0 ${props => props.theme.baseSize * 4}px ${props => props.theme.baseSize * 2}px;
 `
 
-const Locations = (props) => {
+const Locations = ({loading}) => {
   return (
     <LocationElm className="Location">
-      <LocationContent>
-        <LocationIcon></LocationIcon>
-        <LocationInfo>
-          <div className="_wrapper">
-            <p className="LocationInfo__num">29°C</p>
-            <span className="separator"></span>
-            <p className="LocationInfo__place">
-              <span>Lyon</span>
-              <span>Francia</span>
-            </p>
-          </div>
-        </LocationInfo>
-      </LocationContent>
-      <LocationFooter>
-        <li>Humidity 48%</li>
-        <li>West</li>
-        <li>8.3km/h</li>
-      </LocationFooter>
+      {loading && <Skeleton />}
+      {!loading &&
+        <Fragment>
+          <LocationContent>
+            <LocationIcon></LocationIcon>
+            <LocationInfo>
+              <div className="_wrapper">
+                <p className="LocationInfo__num">29°C</p>
+                <span className="separator"></span>
+                <p className="LocationInfo__place">
+                  <span>Lyon</span>
+                  <span>Francia</span>
+                </p>
+              </div>
+            </LocationInfo>
+          </LocationContent>
+          <LocationFooter>
+            <li>Humidity 48%</li>
+            <li>West</li>
+            <li>8.3km/h</li>
+          </LocationFooter>
+        </Fragment>
+      }
     </LocationElm>
   )
 }

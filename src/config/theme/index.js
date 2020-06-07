@@ -67,3 +67,20 @@ export const font = {
     500: 500,
   }
 }
+
+//SKELETON
+export const skeleton = {
+  base: `
+    animation: animation-skeleton 1.2s ease-in-out infinite;
+    background-color: #eee;
+    background-image: linear-gradient( 90deg,#eee,#f5f5f5,#eee );
+    background-repeat: no-repeat;
+    background-size: 200px 100%;
+    border-radius: 4px;
+    display: inline-block;
+    flex: 1;
+    height: 100%;
+    line-height: 1;
+    width: 100%;
+  `
+}
