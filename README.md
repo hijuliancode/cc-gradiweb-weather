@@ -1,6 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## tools used at this project
+- Photoshop
+- SketchaApp
+- Illustrator
 - Unplash: [https://unsplash.com/](https://unsplash.com/)
 - Unplash placeholder: [https://source.unsplash.com/](https://source.unsplash.com/)
 - Convert Colors: [https://convertacolor.com/](https://convertacolor.com/)
