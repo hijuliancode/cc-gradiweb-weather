@@ -118,7 +118,7 @@ const Root = () => {
         return getWeather('Paris')
       })
       .then(response => {
-        setLocation(response)
+        setLocation([...locations, response])
         setLoading(false)
       })
       .catch(error => console.error(error))
