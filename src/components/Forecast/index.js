@@ -13,7 +13,7 @@ const ForecastElm = styled.div`
   ;
   position: relative;
   @media screen and (${props => props.theme.mq.lg}) {
-    grid-template-columns: 40px 50px 55px;
+    grid-template-columns: 45px 1fr 55px;
   }
   p {
     margin: 0;
@@ -24,6 +24,7 @@ const AreaIcon = styled.div`
   display: flex;
   grid-area: area_icon;
   justify-content: center;
+  img { max-width: 80%; }
 `
 const AreaInfo = styled.div`
   align-items: flex-start;
@@ -33,12 +34,12 @@ const AreaInfo = styled.div`
   justify-content: center;
   h4, p { line-height: 1em; margin: 0; }
   h4 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: ${props => props.theme.font.primary[400]};
     margin-bottom: ${props => props.theme.baseSize}px;
   }
   p {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: ${props => props.theme.font.primary[200]};
     letter-spacing: 0.8px;
   }
@@ -61,16 +62,49 @@ const AreaAverage = styled.div`
   top: -1px;
 `
 
-const Forecast = (props) => {
+const checkDay = (time_text) => {
+  const dayNumber = new Date(time_text).getDay()
+  let dayText;
+  switch (dayNumber) {
+    case 0:
+      dayText = 'Sunday'
+      break;
+    case 1:
+      dayText = 'Monday'
+      break;
+    case 2:
+      dayText = 'Tuesday'
+      break;
+    case 3:
+      dayText = 'Wednesday'
+      break;
+    case 4:
+      dayText = 'Thursday'
+      break;
+    case 5:
+      dayText = 'Friday'
+      break;
+    default:
+      dayText = 'Saturday'
+      break;
+  }
+  return dayText
+}
+
+const Forecast = ({forecast}) => {
+  console.log('Forecast', forecast)
+  const day = checkDay(forecast.dt_txt)
   return (
     <ForecastElm className="Forecast">
-      <AreaIcon>A</AreaIcon>
+      <AreaIcon>
+        <img src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`} alt={forecast.weather[0].description} />
+      </AreaIcon>
       <AreaInfo>
-        <h4>Friday</h4>
-        <p>Rain</p>
+        <h4>{day}</h4>
+        <p>{forecast.weather[0].main}</p>
       </AreaInfo>
       <AreaAverage>
-        <span>32<sup>F</sup></span> / <span>23<sup>C</sup></span>
+        <span>{((forecast.main.temp) * 9 / 5 + 32).toFixed(1)}<sup>F</sup></span> / <span>{forecast.main.temp.toFixed(1)}<sup>C</sup></span>
       </AreaAverage>
     </ForecastElm>
   )

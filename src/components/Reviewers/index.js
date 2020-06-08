@@ -2,11 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Icon from '../shared/Icon'
 
-// DEMO images
-import Reviewer0 from "../../images/content/reviewers/reviewer-0.jpg"
-import Reviewer1 from "../../images/content/reviewers/reviewer-1.jpeg"
-import Reviewer2 from "../../images/content/reviewers/reviewer-2.jpg"
-
 const ReviewersElm =  styled.div`
   align-items: center;
   display: flex;
