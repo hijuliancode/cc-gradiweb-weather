@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## tools used at this project
+- Unplash: [https://unsplash.com/](https://unsplash.com/)
+- Unplash placeholder: [https://source.unsplash.com/](https://source.unsplash.com/)
+- Convert Colors: [https://convertacolor.com/](https://convertacolor.com/)
+- Wikipedia: [https://wikipedia.org/](https://wikipedia.org/)
+- StackOverflow: [https://stackoverflow.com/](https://stackoverflow.com/) 😅
+- Requres, Api helpful: [https://reqres.in/](https://reqres.in/)
+
 ## Available Scripts
 
 In the project directory, you can run:
