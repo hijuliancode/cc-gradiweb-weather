@@ -101,13 +101,11 @@ const Root = () => {
   const [locations, setLocation] = useState([])
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 3000);
     getWeather()
       .then(response => {
+        let { coord: { lat, lon } } = response
         setWeather(response)
-        return getForecasts()
+        return getForecasts(lat, lon)
       })
       .then(response => {
         setForecast(response)
@@ -123,8 +121,6 @@ const Root = () => {
       })
       .catch(error => console.error(error))
     }, [])
-    console.log('forecasts', forecasts)
-
   return (
     <Wrapper>
       <Brand src={gradiIsotipo} />
@@ -134,7 +130,7 @@ const Root = () => {
           <HeroComponent  weather={weather} loading={loading} />
         </SectionTop>
         <SectionBottom noPaddingTop>
-          <SectionGridComponent reviewers={reviewers} locations={locations} loading={loading}/> {/* Section Grid with dynamic information */}
+          <SectionGridComponent forecasts={forecasts} reviewers={reviewers} locations={locations} loading={loading}/> {/* Section Grid with dynamic information */}
         </SectionBottom>
       </Container>
       <Alerts/>

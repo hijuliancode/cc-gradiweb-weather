@@ -13,8 +13,9 @@ export const getWeather = async (city = 'Bogota', units = 'metric') => {
   })
   return data
 }
-export const getForecasts = async (city = 'Bogota', units = 'metric') => {
-  const url = `${API_URL}/forecast?q=${city}&appid=${API_KEY}&units=${units}`
+export const getForecasts = async (lat, lon, units = 'metric') => {
+  const url = `${API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${units}`
+  console.log(url)
   const data = await new Promise((response, reject) => {
     sendHTTPRequest('GET', url)
       .then(responseData => {

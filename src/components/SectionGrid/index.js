@@ -27,7 +27,7 @@ const AreaForecast = styled.div`
   }
   @media screen and (${props => props.theme.mq.lg}) {
     margin-bottom: 0;
-    width: 145px;
+    width: 175px;
   }
 `
 const AreaForecastItems = styled.div`
@@ -99,19 +99,28 @@ const AreaTitle = styled.h2`
   .separator { flex: 1; }
 `
 
-const SectionGridComponent = ({reviewers, locations, loading}) => {
+const SectionGridComponent = ({forecasts, reviewers, locations, loading}) => {
+  const forecastLists = []
+  if (forecasts) {
+    for (let i = 0; i < forecasts.list.length; i+=8) {
+      const temporary = forecasts.list[i]
+      forecastLists.push(temporary)
+    }
+  }
   return (
     <Grid>
       <AreaForecast>
         <AreaTitle>
           <span>3 Days </span> Forecast
         </AreaTitle>
-        {loading && <Skeleton />}
-        {!loading &&
+        {(loading || !forecastLists) && <Skeleton />}
+        {(!loading && forecastLists) &&
           <AreaForecastItems>
-            <Forecast />
-            <Forecast />
-            <Forecast />
+            {
+              forecastLists.slice(0, 3).map((forecast) => (
+                <Forecast forecast={forecast} key={forecast.dt} />
+              ))
+            }
           </AreaForecastItems>
         }
       </AreaForecast>
