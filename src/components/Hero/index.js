@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Icon from '../shared/Icon'
 
@@ -50,6 +50,7 @@ const Hero = styled.picture`
       width: 120px;
     }
   }
+  a { color: inherit; text-decoration: none; }
 `
 const HeroImage = styled.img`
   display: block;
@@ -75,7 +76,7 @@ const HeroComponent = ({loading, weather}) => {
     <Hero>
       {loading && <Skeleton />}
       {!loading &&
-        <Fragment>
+        <a href={`https://en.wikipedia.org/wiki/${weather.name}`} target="_blank" rel="noopener noreferrer">
           <HeroImage src={`https://source.unsplash.com/755x220/?${(weather.sys.country === 'CO') ? 'colombia' : 'france'},Outdoors,Symbol,Architecture`} alt="City" />
           <HeroBackdrop />
           <div className="Hero__content">
@@ -85,7 +86,7 @@ const HeroComponent = ({loading, weather}) => {
             </div>
             {/* <div className="Location-map"></div> */}
           </div>
-        </Fragment>
+        </a>
       }
     </Hero>
   )

@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker'
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize as Normalize } from "styled-normalize"
 import * as Theme from "./config/theme/"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 export const GlobalStyle = createGlobalStyle`
   ${Normalize}
@@ -30,7 +31,11 @@ export const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <ThemeProvider theme={Theme}>
     <GlobalStyle/>
-    <Root />
+    <Router>
+      <Switch>
+        <Route path="/" component={Root}></Route>
+      </Switch>
+    </Router>
   </ThemeProvider>,
   document.getElementById('root')
 )

@@ -23,8 +23,6 @@ const AreaForecast = styled.div`
   flex-direction: column;
   grid-area: area_forecast;
   margin-bottom: ${props => props.theme.baseSize * 6}px;
-  @media screen and (${props => props.theme.mq.md}) {
-  }
   @media screen and (${props => props.theme.mq.lg}) {
     margin-bottom: 0;
     width: 175px;
@@ -34,6 +32,14 @@ const AreaForecastItems = styled.div`
   display: flex;
   .Forecast {
     flex: 1;
+  }
+  @media screen and (${props => props.theme.mq.xm}) {
+    flex-direction: column;
+    .Forecast {
+      margin-bottom: ${props => props.theme.baseSize * 2}px;
+    }
+  }
+  @media screen and (${props => props.theme.mq.sm}) {
     &:nth-child(2n) {
       margin: 0 5px;
     }

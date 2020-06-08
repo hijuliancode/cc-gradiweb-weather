@@ -34,12 +34,12 @@ const AreaInfo = styled.div`
   justify-content: center;
   h4, p { line-height: 1em; margin: 0; }
   h4 {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: ${props => props.theme.font.primary[400]};
     margin-bottom: ${props => props.theme.baseSize}px;
   }
   p {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     font-weight: ${props => props.theme.font.primary[200]};
     letter-spacing: 0.8px;
   }
@@ -92,7 +92,6 @@ const checkDay = (time_text) => {
 }
 
 const Forecast = ({forecast}) => {
-  console.log('Forecast', forecast)
   const day = checkDay(forecast.dt_txt)
   return (
     <ForecastElm className="Forecast">
