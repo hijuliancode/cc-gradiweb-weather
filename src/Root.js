@@ -90,6 +90,38 @@ const SectionBottom = styled(_sections)`
   @media screen and (${props => props.theme.mq.md}) { padding-top: 0; }
   @media screen and (${props => props.theme.mq.lg}) { padding-top: 0; }
 `
+const NavTranslation = styled.ul `
+  color: ${props => props.theme.blackColor};
+  display: flex;
+  font-size: 1.1rem;
+  left: ${props => props.theme.baseSize * 4}px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0;
+  @media screen and (${props => props.theme.mq.lg}) {
+    flex-direction: column;
+    top: 50%;
+    right: ${props => props.theme.baseSize}px;
+    transform: translateY(-50%);
+    li {
+      margin-bottom: ${props => props.theme.baseSize * 2}px;
+    }
+  }
+  li {
+    margin-right: ${props => props.theme.baseSize * 2}px;
+    @media screen and (${props => props.theme.mq.lg}) {
+      margin-right: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      font-weight: ${props => props.theme.font.primary[500]};
+    }
+  }
+`
 
 const Root = () => {
   const [loading, setLoading] = useState(true)
@@ -124,6 +156,11 @@ const Root = () => {
   return (
     <Wrapper>
       <Brand src={gradiIsotipo} />
+      <NavTranslation>
+        <li>FR</li>
+        <li>ES</li>
+        <li>EN</li>
+      </NavTranslation>
       <Container>
         <SectionTop>
           <CurrentStateComponent weather={weather} loading={loading} />

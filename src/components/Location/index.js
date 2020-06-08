@@ -40,6 +40,7 @@ const LocationInfo = styled.div`
   margin-bottom: ${props => props.theme.baseSize * 3}px;
   padding: ${props => props.theme.baseSize * 3}px;
   width: calc(100% - 77px); /* 100% - 65px of icon and 12px of margin */
+  a { color: inherit; text-decoration: none; }
   & > ._wrapper {
     align-items: center;
     display: flex;
@@ -54,7 +55,7 @@ const LocationInfo = styled.div`
     font-size: 0.8rem;
     font-weight: ${props => props.theme.font.primary[300]};
     margin-bottom: 0;
-    & > span { display: block; }
+    & > span, a { display: block; }
     span:first-child {
       font-weight: ${props => props.theme.font.primary[500]};
     }
@@ -107,7 +108,7 @@ const Locations = ({location, loading}) => {
                 <p className="LocationInfo__num">{(location.main.temp).toFixed(1)}°C</p>
                 <span className="separator"></span>
                 <p className="LocationInfo__place">
-                  <span>{location.name}</span>
+                  <span><a href="https://en.wikipedia.org/wiki/Paris">{location.name}</a></span>
                   <span>{location.sys.country}</span>
                 </p>
               </div>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Icon from '../shared/Icon'
 
@@ -28,6 +28,12 @@ const _place = styled.div`
   overflow: hidden;
   padding: ${props => props.theme.baseSize * 3}px;
   position: relative;
+  &:hover {
+    cursor: pointer;
+    &:before {
+      opacity: 1;
+    }
+  }
   &:after {
     background-color: rgba(0, 0, 0, 0.2);
     content: "";
@@ -37,6 +43,24 @@ const _place = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
+  }
+  &:before {
+    ${props => props.theme.isRadious.x6}
+    align-items: center;
+    background-color: rgb(125, 103, 240, 0.8);
+    color: white;
+    content: "+";
+    display: flex;
+    font-size: 1.3rem;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all ease-in-out 0.2s;
+    width: 45px;
+    z-index: 15;
   }
   &:not(:last-child) {
     margin-bottom: ${props => props.theme.baseSize * 3}px;
@@ -66,6 +90,9 @@ const _place = styled.div`
       font-weight: ${props => props.theme.font.primary[400]};
       margin: 0;
     }
+  }
+  a {
+    color: inherit;
   }
 `
 const PlaceA = styled(_place)`
@@ -105,46 +132,46 @@ const Places = ({loading}) => {
       <PlaceA>
         {loading && <Skeleton />}
         {!loading &&
-          <Fragment>
+          <a href="https://fr.wikipedia.org/wiki/Arc_de_triomphe_de_l%27%C3%89toile" target="_blank" rel="noopener noreferrer">
             <div className="place-info">
               <Icon pinLocation whiteColor></Icon>
               <div className="place-info__name">
-                <p>Arab Street</p>
-                <p>Singapore</p>
+                <p><strong>L'Arc de Triomphe de l'Etoile</strong></p>
+                <p>Paris, France</p>
               </div>
             </div>
             <PlaceImage src={ImagePlaceA} alt="Place A" />
-          </Fragment>
+          </a>
         }
       </PlaceA>
       <PlaceB>
         {loading && <Skeleton />}
         {!loading &&
-          <Fragment>
+        <a href="https://en.wikipedia.org/wiki/Vianden" target="_blank" rel="noopener noreferrer">
             <div className="place-info">
               <Icon pinLocation whiteColor></Icon>
               <div className="place-info__name">
-                <p>Arab Street</p>
-                <p>Singapore</p>
+                <p>Vianden</p>
+                <p>Luxembourg</p>
               </div>
             </div>
             <PlaceImage src={ImagePlaceB} alt="Place B" />
-          </Fragment>
+          </a>
         }
       </PlaceB>
       <PlaceC>
         {loading && <Skeleton />}
         {!loading &&
-          <Fragment>
+          <a href="https://en.wikipedia.org/wiki/G%C3%B6reme" target="_blank" rel="noopener noreferrer">
             <div className="place-info">
               <Icon pinLocation whiteColor></Icon>
               <div className="place-info__name">
-                <p>Arab Street</p>
-                <p>Singapore</p>
+                <p>Göreme</p>
+                <p>Turkey</p>
               </div>
             </div>
             <PlaceImage src={ImagePlaceC} alt="Place C" />
-          </Fragment>
+          </a>
         }
       </PlaceC>
     </Grid>
