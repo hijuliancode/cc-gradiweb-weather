@@ -39,7 +39,9 @@ const Hero = styled.picture`
       i { margin-right: ${props => props.theme.baseSize * 2}px; }
       span {
         color: ${props => props.theme.primaryColor};
+        font-size: 1.1rem;
         font-weight: ${props => props.theme.font.primary[500]};
+        text-shadow: 0 0 1px black;
       }
     }
     .Location-map {
@@ -60,7 +62,7 @@ const HeroImage = styled.img`
   width: 100%;
 `
 const HeroBackdrop = styled.div`
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 155, 255, 0.1);
   height: 100%;
   left: 0;
   position: absolute;
@@ -68,19 +70,18 @@ const HeroBackdrop = styled.div`
   width: 100%;
 `
 
-const HeroComponent = ({loading}) => {
-  console.log(loading)
+const HeroComponent = ({loading, weather}) => {
   return (
     <Hero>
       {loading && <Skeleton />}
       {!loading &&
         <Fragment>
-          <HeroImage src="https://i.pinimg.com/originals/04/e2/a4/04e2a4a735ff613ff1ee802aaa44b03f.jpg" alt="City" />
+          <HeroImage src={`https://source.unsplash.com/755x220/?${(weather.sys.country === 'CO') ? 'colombia' : 'france'},Outdoors,Symbol,Architecture`} alt="City" />
           <HeroBackdrop />
           <div className="Hero__content">
             <div className="Location">
               <Icon pinLocation primaryColor></Icon>
-              <span>Bogotá</span>
+              <span>{weather.name}</span>
             </div>
             {/* <div className="Location-map"></div> */}
           </div>

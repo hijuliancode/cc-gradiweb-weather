@@ -28,6 +28,16 @@ const _place = styled.div`
   overflow: hidden;
   padding: ${props => props.theme.baseSize * 3}px;
   position: relative;
+  &:after {
+    background-color: rgba(0, 0, 0, 0.2);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
   &:not(:last-child) {
     margin-bottom: ${props => props.theme.baseSize * 3}px;
   }

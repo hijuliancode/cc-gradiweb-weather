@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import CurrentStateMiscTop from '../../images/design/misc/current-state-misc--top.svg'
 import CurrentStateMiscBottom from '../../images/design/misc/current-state-misc--bottom.svg'
-import Skeleton from '../shared/skeleton'
 
 const CurrentState = styled.div`
   ${props => props.theme.isRadious.x4};
@@ -45,6 +44,9 @@ const CurrentStateIcon = styled(_currentState)`
     background-image: url(${CurrentStateMiscTop});
     top: -6px;
   }
+  img {
+    max-width: 100%;
+  }
 `
 const CurrentStateScale = styled(_currentState)`
   background-color: ${props => props.theme.primaryColor};
@@ -59,16 +61,16 @@ const CurrentStateScale = styled(_currentState)`
   }
 `
 
-const CurrentStateComponent = ({loading}) => {
+const CurrentStateComponent = ({weather, loading}) => {
   return (
     <CurrentState>
       <CurrentStateIcon>
-        {!loading && <span></span>}
+        {!loading && <img src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`} />}
       </CurrentStateIcon>
       <CurrentStateScale>
         {!loading &&
           <span>
-            31<sup>°C</sup>
+            {weather.main.temp}<sup>°C</sup>
           </span>
         }
       </CurrentStateScale>

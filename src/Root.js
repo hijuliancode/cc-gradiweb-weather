@@ -6,7 +6,7 @@ import CurrentStateComponent from './components/CurrentState/'
 import HeroComponent from './components/Hero/'
 import SectionGridComponent from './components/SectionGrid'
 
-const { getCurrentCity, getForecasts, getReviewers } = require('./services/')
+const { getWeather, getForecasts, getReviewers } = require('./services/')
 
 const Alerts = styled.div`
   display: none;
@@ -94,28 +94,42 @@ const SectionBottom = styled(_sections)`
 const Root = () => {
   const [loading, setLoading] = useState(true)
   // const [currentScale, setCurrentScale] = useState('Celcius')
-  // const [currentCity, setCurrentCity] = useState()
-  // const [forecasts, setForecast] = useState([])
-  // const [reviewers, setReviewer] = useState([])
+  const [weather, setWeather] = useState(null)
+  const [forecasts, setForecast] = useState(null)
+  const [reviewers, setReviewer] = useState(null)
   // const [places, setPlace] = useState([])
   // const [locations, setLocation] = useState([])
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-    getCurrentCity()
-    getForecasts()
-    getReviewers()
-  }, [])
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 3000);
+    getWeather()
+      .then(response => {
+        setWeather(response)
+        return getForecasts()
+      })
+      .then(response => {
+        setForecast(response)
+        return getReviewers()
+      })
+      .then(response => {
+        setReviewer(response)
+        setLoading(false)
+      })
+      .catch(error => console.error(error))
+    }, [])
+    console.log('weather', weather)
+    console.log('forecasts', forecasts)
+    console.log('reviewers', reviewers)
 
   return (
     <Wrapper>
       <Brand src={gradiIsotipo} />
       <Container>
         <SectionTop>
-          <CurrentStateComponent loading={loading} />
-          <HeroComponent loading={loading} />
+          <CurrentStateComponent weather={weather} loading={loading} />
+          <HeroComponent  weather={weather} loading={loading} />
         </SectionTop>
         <SectionBottom noPaddingTop>
           <SectionGridComponent loading={loading}/> {/* Section Grid with dynamic information */}

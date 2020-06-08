@@ -11,38 +11,43 @@ const API_KEY = '19efbb79d2b3cdabdd6764b45ffec8c3'
 //   deleteLocation() {}
 // }
 
-export const getCurrentCity = (city = 'Bogota') => {
-  const url = `${API_URL}/weather?q=${city}&appid=${API_KEY}`
-  sendHTTPRequest('GET', url)
-    .then(responseData => {
-      console.log('getCurrentCity =>', responseData)
-      return responseData
+export const getWeather = async (city = 'Bogota', units = 'metric') => {
+  const url = `${API_URL}/weather?q=${city}&appid=${API_KEY}&units=${units}`
+  const data = await new Promise((response, reject) => {
+    sendHTTPRequest('GET', url).then(responseData => {
+      response(responseData)
     })
     .catch(err => {
-      console.error(new Error(err))
+      reject(new Error(err))
     })
+  })
+  return data
 }
-export const getForecasts = (city = 'Bogota') => {
-  const url = `${API_URL}/forecast?q=${city}&appid=${API_KEY}`
-  sendHTTPRequest('GET', url)
-    .then(responseData => {
-      console.log('getForecasts =>', responseData)
-      return responseData
-    })
-    .catch(err => {
-      console.error(new Error(err))
-    })
+export const getForecasts = async (city = 'Bogota', units = 'metric') => {
+  const url = `${API_URL}/forecast?q=${city}&appid=${API_KEY}&units=${units}`
+  const data = await new Promise((response, reject) => {
+    sendHTTPRequest('GET', url)
+      .then(responseData => {
+        response(responseData)
+      })
+      .catch(err => {
+        reject(new Error(err))
+      })
+  })
+  return data
 }
-export const getReviewers = () => {
-  const url = 'https://reqres.in/api/users?page=1';
-  sendHTTPRequest('GET', url)
-    .then(responseData => {
-      console.log('getReviewers =>', responseData)
-      return responseData
-    })
-    .catch(err => {
-      console.error(new Error(err))
-    })
+export const getReviewers = async () => {
+  const url = 'https://reqres.in/api/users?page=1'
+  const data = await new Promise((response, reject) => {
+    sendHTTPRequest('GET', url)
+      .then(responseData => {
+        response(responseData)
+      })
+      .catch(err => {
+        reject(new Error(err))
+      })
+  })
+  return data
 }
 
 export const postPlace = () => {}
