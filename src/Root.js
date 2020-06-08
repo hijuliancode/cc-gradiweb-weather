@@ -123,10 +123,7 @@ const Root = () => {
       })
       .catch(error => console.error(error))
     }, [])
-    console.log('weather', weather)
     console.log('forecasts', forecasts)
-    console.log('reviewers', reviewers)
-    console.log('locations', locations)
 
   return (
     <Wrapper>
@@ -137,7 +134,7 @@ const Root = () => {
           <HeroComponent  weather={weather} loading={loading} />
         </SectionTop>
         <SectionBottom noPaddingTop>
-          <SectionGridComponent locations={locations} loading={loading}/> {/* Section Grid with dynamic information */}
+          <SectionGridComponent reviewers={reviewers} locations={locations} loading={loading}/> {/* Section Grid with dynamic information */}
         </SectionBottom>
       </Container>
       <Alerts/>

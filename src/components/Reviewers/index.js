@@ -58,16 +58,20 @@ const ReviewersList = styled.ul`
   }
 `
 
-const Reviewers = (props) => {
+const Reviewers = ({reviewers}) => {
   return (
     <ReviewersElm>
       <Icon iconReviewers primaryColor/>
       <strong>Top Reviewers</strong>
       <ReviewersList>
-        <li> <img src={Reviewer0} alt="Reviewer 0" /> </li>
-        <li> <img src={Reviewer1} alt="Reviewer 1" /> </li>
-        <li> <img src={Reviewer2} alt="Reviewer 2" /> </li>
-        <li className="all-reviewers">8+</li>
+        {
+          reviewers.data.slice(0, 3).map(reviewer => (
+            <li key={reviewer.id}>
+              <img src={reviewer.avatar} alt={`${reviewer.first_name} ${reviewer.last_name}`} />
+            </li>
+          ))
+        }
+        <li className="all-reviewers">{reviewers.total}+</li>
       </ReviewersList>
     </ReviewersElm>
   )
