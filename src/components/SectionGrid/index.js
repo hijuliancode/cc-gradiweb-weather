@@ -99,7 +99,7 @@ const AreaTitle = styled.h2`
   .separator { flex: 1; }
 `
 
-const SectionGridComponent = ({locations, loading}) => {
+const SectionGridComponent = ({reviewers, locations, loading}) => {
   return (
     <Grid>
       <AreaForecast>
@@ -120,7 +120,7 @@ const SectionGridComponent = ({locations, loading}) => {
           <span>Place to</span> visit
           <div className="separator"></div>
           {!loading &&
-            <Reviewers />
+            <Reviewers reviewers={reviewers} />
           }
         </AreaTitle>
         <Places loading={loading} />
