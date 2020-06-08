@@ -98,7 +98,7 @@ const Root = () => {
   const [forecasts, setForecast] = useState(null)
   const [reviewers, setReviewer] = useState(null)
   // const [places, setPlace] = useState([])
-  // const [locations, setLocation] = useState([])
+  const [locations, setLocation] = useState([])
 
   useEffect(() => {
     // setTimeout(() => {
@@ -115,6 +115,10 @@ const Root = () => {
       })
       .then(response => {
         setReviewer(response)
+        return getWeather('Paris')
+      })
+      .then(response => {
+        setLocation([...locations, response])
         setLoading(false)
       })
       .catch(error => console.error(error))
@@ -122,6 +126,7 @@ const Root = () => {
     console.log('weather', weather)
     console.log('forecasts', forecasts)
     console.log('reviewers', reviewers)
+    console.log('locations', locations)
 
   return (
     <Wrapper>
@@ -132,7 +137,7 @@ const Root = () => {
           <HeroComponent  weather={weather} loading={loading} />
         </SectionTop>
         <SectionBottom noPaddingTop>
-          <SectionGridComponent loading={loading}/> {/* Section Grid with dynamic information */}
+          <SectionGridComponent locations={locations} loading={loading}/> {/* Section Grid with dynamic information */}
         </SectionBottom>
       </Container>
       <Alerts/>

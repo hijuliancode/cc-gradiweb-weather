@@ -65,12 +65,12 @@ const CurrentStateComponent = ({weather, loading}) => {
   return (
     <CurrentState>
       <CurrentStateIcon>
-        {!loading && <img src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`} />}
+        {!loading && <img src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt={weather.weather[0].description} />}
       </CurrentStateIcon>
       <CurrentStateScale>
         {!loading &&
           <span>
-            {weather.main.temp}<sup>°C</sup>
+            {(weather.main.temp).toFixed(1)}<sup>°C</sup>
           </span>
         }
       </CurrentStateScale>

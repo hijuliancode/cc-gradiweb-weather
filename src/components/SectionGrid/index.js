@@ -99,7 +99,7 @@ const AreaTitle = styled.h2`
   .separator { flex: 1; }
 `
 
-const SectionGridComponent = ({loading}) => {
+const SectionGridComponent = ({locations, loading}) => {
   return (
     <Grid>
       <AreaForecast>
@@ -127,8 +127,12 @@ const SectionGridComponent = ({loading}) => {
       </AreaPlaces>
       <AreaLocations>
         <div className="_locations">
+          {
+            locations.map(location => (
+              <Location location={location} loading={loading} key={location.id} />
+            ))
+          }
           {/* <Location topPosition={150}/> */}
-          <Location loading={loading} />
         </div>
         <AddLocation loading={loading} />
       </AreaLocations>

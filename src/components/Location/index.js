@@ -80,29 +80,43 @@ const LocationFooter = styled.ul`
   padding: 0 ${props => props.theme.baseSize * 4}px ${props => props.theme.baseSize * 2}px;
 `
 
-const Locations = ({loading}) => {
+const toDegToDirection = (degree) => {
+  if(degree>337.5) return 'Northerly'
+  if(degree>292.5) return 'North Westerly'
+  if(degree>247.5) return 'Westerly'
+  if(degree>202.5) return 'South Westerly'
+  if(degree>157.5) return 'Southerly'
+  if(degree>122.5) return 'South Easterly'
+  if(degree>67.5) return 'Easterly'
+  if(degree>22.5) return 'North Easterly'
+  return 'Northerly'
+}
+
+const Locations = ({location, loading}) => {
   return (
     <LocationElm className="Location">
       {loading && <Skeleton />}
       {!loading &&
         <Fragment>
           <LocationContent>
-            <LocationIcon></LocationIcon>
+            <LocationIcon>
+              {!loading && <img src={`https://openweathermap.org/img/w/${location.weather[0].icon}.png`} alt={location.weather[0].description} />}
+            </LocationIcon>
             <LocationInfo>
               <div className="_wrapper">
-                <p className="LocationInfo__num">29°C</p>
+                <p className="LocationInfo__num">{(location.main.temp).toFixed(1)}°C</p>
                 <span className="separator"></span>
                 <p className="LocationInfo__place">
-                  <span>Lyon</span>
-                  <span>Francia</span>
+                  <span>{location.name}</span>
+                  <span>{location.sys.country}</span>
                 </p>
               </div>
             </LocationInfo>
           </LocationContent>
           <LocationFooter>
-            <li>Humidity 48%</li>
-            <li>West</li>
-            <li>8.3km/h</li>
+            <li>Humidity {location.main.humidity}%</li>
+            <li>{toDegToDirection(location.wind.deg)}</li>
+            <li>{location.wind.speed}km/h</li>
           </LocationFooter>
         </Fragment>
       }
