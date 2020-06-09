@@ -1,8 +1,8 @@
 const API_URL = 'https://api.openweathermap.org/data/2.5'
 const API_KEY = '19efbb79d2b3cdabdd6764b45ffec8c3'
 
-export const getWeather = async (city = 'Bogota', units = 'metric') => {
-  const url = `${API_URL}/weather?q=${city}&appid=${API_KEY}&units=${units}`
+export const getWeather = async (city = 3688689, units = 'metric') => { // Default City, Bogotá
+  const url = `${API_URL}/weather?id=${city}&appid=${API_KEY}&units=${units}`
   const data = await new Promise((response, reject) => {
     sendHTTPRequest('GET', url).then(responseData => {
       response(responseData)

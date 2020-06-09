@@ -145,10 +145,14 @@ const Root = () => {
       })
       .then(response => {
         setReviewer(response)
-        return getWeather('Paris')
+        return getWeather(6455259) // Get Paris Fr by ID
       })
       .then(response => {
-        setLocation([...locations, response])
+        setLocation(locations => [...locations, response])
+        return getWeather(2996944) // Get Lyon Fr by ID
+      })
+      .then(response => {
+        setLocation(locations => [...locations, response])
         setLoading(false)
       })
       .catch(error => console.error(error))
