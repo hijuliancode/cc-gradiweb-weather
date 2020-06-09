@@ -111,7 +111,6 @@ const AreaTitle = styled.h2`
 `
 
 const SectionGridComponent = ({forecasts, reviewers, locations, loading}) => {
-  console.log('lll => ', locations)
   const forecastLists = []
   if (forecasts) {
     for (let i = 0; i < forecasts.list.length; i+=8) {
@@ -129,7 +128,7 @@ const SectionGridComponent = ({forecasts, reviewers, locations, loading}) => {
         {(!loading && forecastLists) &&
           <AreaForecastItems>
             {
-              forecastLists.slice(0, 3).map((forecast) => (
+              forecastLists.slice(1, 4).map((forecast) => (
                 <Forecast forecast={forecast} key={forecast.dt} />
               ))
             }
