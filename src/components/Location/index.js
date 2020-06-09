@@ -105,7 +105,7 @@ const Locations = ({location, loading}) => {
                 <p className="LocationInfo__num">{(location.main.temp).toFixed(1)}°C</p>
                 <span className="separator"></span>
                 <p className="LocationInfo__place">
-                  <span><a href={`https://en.wikipedia.org/wiki/${location.name}`} target="_blank">{location.name}</a></span>
+                  <span><a href={`https://en.wikipedia.org/wiki/${location.name}`} target="_blank" rel="noopener noreferrer">{location.name}</a></span>
                   <span>{location.sys.country}</span>
                 </p>
               </div>
