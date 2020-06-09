@@ -83,6 +83,11 @@ const AreaLocations = styled.div`
     margin-top: ${props => props.theme.baseSize * 2}px;
     position: relative;
     .Location {
+      @media screen and (${props => props.theme.mq.lg}) {
+        &:first-child {
+          margin-top: -124px;
+        }
+      }
       &:not(:last-child) {
         margin-bottom: ${props => props.theme.baseSize * 3}px;
       }
@@ -106,6 +111,7 @@ const AreaTitle = styled.h2`
 `
 
 const SectionGridComponent = ({forecasts, reviewers, locations, loading}) => {
+  console.log('lll => ', locations)
   const forecastLists = []
   if (forecasts) {
     for (let i = 0; i < forecasts.list.length; i+=8) {
@@ -142,7 +148,8 @@ const SectionGridComponent = ({forecasts, reviewers, locations, loading}) => {
       </AreaPlaces>
       <AreaLocations>
         <div className="_locations">
-          {
+          {(loading || !locations) && <Skeleton />}
+          { locations &&
             locations.map(location => (
               <Location location={location} loading={loading} key={location.id} />
             ))
